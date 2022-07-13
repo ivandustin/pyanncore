@@ -1,37 +1,17 @@
 from anncore import Network, neurogenesis
 from jax.random import PRNGKey, split
-from jax.numpy import array_equal
-
-def test_a():
-    key     = PRNGKey(0)
-    network = Network(key, 100)
-    network = neurogenesis(key, network)
-    assert len(network) == 2
-    assert network[0].shape == (100, 2)
-    assert network[1].shape == (1, 1)
 
 def test_b():
     key     = PRNGKey(0)
+    keys    = split(key, 6)
     network = Network(key, 100)
-    network = neurogenesis(key, network)
-    network = neurogenesis(key, network)
-    assert len(network) == 3
-    assert network[0].shape == (100, 3)
-    assert network[1].shape == (1, 2)
-    assert network[2].shape == (1, 1)
-
-def test_c():
-    key = PRNGKey(0)
-    key_a, key_b = split(key)
-    network_a = Network(key_a, 100)
-    network_b = neurogenesis(key_b, network_a)
-    assert array_equal(network_a[0][:, 0], network_b[0][:, -1])
-
-def test_d():
-    key = PRNGKey(0)
-    key_a, key_b = split(key)
-    network   = Network(key, 100)
-    network_a = neurogenesis(key_a, network)
-    network_b = neurogenesis(key_b, network_a)
-    assert array_equal(network_a[0][:, 0],  network_b[0][:, 0])
-    assert array_equal(network_a[0][:, -1], network_b[0][:, -1])
+    for key in keys:
+        network = neurogenesis(key, network)
+    assert len(network) == 7
+    assert network[0].shape == (100, 7)
+    assert network[1].shape == (1, 6)
+    assert network[2].shape == (1, 5)
+    assert network[3].shape == (1, 4)
+    assert network[4].shape == (1, 3)
+    assert network[5].shape == (1, 2)
+    assert network[6].shape == (1, 1)
