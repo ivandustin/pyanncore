@@ -1,4 +1,4 @@
-from anncore import create_network, neurogenesis, feed, infer
+from anncore import Network, neurogenesis, feed, infer
 from jax.numpy import array, array_equal, clip
 from jax.random import PRNGKey, split
 from jax.lax import fori_loop
@@ -7,7 +7,7 @@ from jax import jit
 def test():
     key = PRNGKey(0)
     key_a, key_b = split(key)
-    network = create_network(key_a, 2)
+    network = Network(key_a, 2)
     network = neurogenesis(key_b, network)
     input   = array([
         [0.0, 0.0],

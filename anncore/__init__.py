@@ -1,5 +1,5 @@
-from .create_network import create_network
 from .neurogenesis import neurogenesis
+from .network import Network
 from .synapse import Synapse
 from .infer import infer
 from .right import right
