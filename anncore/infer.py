@@ -1,12 +1,11 @@
 from annfunctions import activation
+from .first import first
+from .tail import tail
 
 def infer(x, S):
-    s = S[0]
-    n = x @ s
-    x = activation(n[:, :1])
-    for i in range(1, len(S)):
-        s = S[i]
-        n = n[:, 1:]
+    n = 0
+    for s in S:
         n = (x @ s) + n
-        x = activation(n[:, :1])
+        x = activation(first(n))
+        n = tail(n)
     return x
