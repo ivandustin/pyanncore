@@ -7,10 +7,9 @@ def test():
         [4, 5, 6],
         [7, 8, 9]
     ])
-    actual   = left(matrix)
     expected = array([
         [1, 2],
         [4, 5],
         [7, 8]
     ])
-    assert array_equal(actual, expected)
+    assert array_equal(left(matrix), expected)

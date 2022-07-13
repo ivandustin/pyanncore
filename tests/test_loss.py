@@ -7,6 +7,4 @@ def test():
     input    = array([[1.0]])
     observed = array([[2.0]])
     network  = [ array([[1.5]]) ]
-    actual   = loss(network, input, observed)
-    expected = 0.25
-    assert actual == expected
+    assert loss(network, input, observed) == 0.25

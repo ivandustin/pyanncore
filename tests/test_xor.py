@@ -22,9 +22,7 @@ def test():
         [0.0]
     ])
     network = train(network, input, expected)
-    actual  = infer(input, network)
-    actual  = clip(actual, 0, 1)
-    assert array_equal(actual, expected)
+    assert array_equal(infer(input, network).clip(0, 1), expected)
 
 @jit
 def train(network, input, expected):

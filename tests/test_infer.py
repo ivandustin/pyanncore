@@ -23,5 +23,4 @@ def test():
         [1.0],
         [0.0]
     ])
-    actual = infer(x, S)
-    assert array_equal(actual, expected)
+    assert array_equal(infer(x, S), expected)
