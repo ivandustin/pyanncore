@@ -1,4 +1,4 @@
-from .create_synapse import create_synapse
+from .synapse import Synapse
 
-def create_network(key, n):
-    return [ create_synapse(key, shape=(n,1)) ]
+def create_network(key, inputs):
+    return [ Synapse(key, shape=(inputs, 1)) ]

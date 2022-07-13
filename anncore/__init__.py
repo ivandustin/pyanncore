@@ -1,6 +1,6 @@
 from .create_network import create_network
-from .create_synapse import create_synapse
 from .neurogenesis import neurogenesis
+from .synapse import Synapse
 from .infer import infer
 from .right import right
 from .feed import feed
