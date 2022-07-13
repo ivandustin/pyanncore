@@ -1,6 +1,6 @@
-from anncore import Synapse
 from jax.random import PRNGKey
 from jax.numpy import isclose
+from anncore import Synapse
 
 def test():
     key     = PRNGKey(0)
