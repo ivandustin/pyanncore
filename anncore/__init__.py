@@ -1,6 +1,7 @@
 from .neurogenesis import neurogenesis
 from .network import Network
 from .synapse import Synapse
+from .insert import insert
 from .first import first
 from .infer import infer
 from .right import right
