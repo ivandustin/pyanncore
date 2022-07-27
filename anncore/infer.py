@@ -1,7 +1,9 @@
 from annfunctions import activation
 from .first import first
 from .tail import tail
+from jax import jit
 
+@jit
 def infer(x, S):
     n = 0
     for s in S:
